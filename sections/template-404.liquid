@@ -1,5 +1,22 @@
-<h1>{{ section.settings.title }}</h1>
-<p>{{ section.settings.subtext }}</p>
+
+<div class="max-w-md">
+    <div class="text-xl font-bold my-4">{{ section.settings.title }}</div>
+    <div class="text-3xl font-bold my-4"><p>{{ section.settings.subtext }}</p></div>
+    <div class="my-4">
+        {% if section.settings.button_url == blank %}
+            {% assign shop_url = shop.secure_url %}
+
+        {% else %}
+            {% assign shop_url = section.settings.button_url %}
+            
+        {% endif %}
+        <a href="{{ shop_url }}" class="px-4 inline py-2 text-base font-medium shadow bg-green-600 hover:bg-green-800 text-white"> {{  section.settings.button_label}} </a>
+    </div>
+</div>
+
+
+
+
 
 
 
@@ -21,6 +38,18 @@
                 "id": "subtext",
                 "label": "Subtext",
                 "default": "The Page you are looking for could not be found. Please check the URL or return to the homepage."
+            },
+            {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button Label",
+                "default": "Back to Homepage"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL",
+                "default": "/"
             }
         ]
     }
