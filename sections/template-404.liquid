@@ -1,0 +1,25 @@
+<h1>{{ section.settings.title }}</h1>
+<p>{{ section.settings.subtext }}</p>
+
+
+
+
+{% schema %}
+    {
+        "name": "Template 404",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "404 Found"
+            },
+            {
+                "type": "textarea",
+                "id": "subtext",
+                "label": "Subtext",
+                "default": "The Page you are looking for could not be found. Please check the URL or return to the homepage."
+            }
+        ]
+    }
+{% endschema %}
